@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--~~~~~~~~~~~~~~~ Font Awesome ~~~~~~~~~~~~~~~-->
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!--~~~~~~~~~~~~~~~ Remix Icon ~~~~~~~~~~~~~~~-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <!--~~~~~~~~~~~~~~~ CSS ~~~~~~~~~~~~~~~-->
+    <!--link href="/dist/output.css" rel="stylesheet"-->
+    <link href="output.css" rel="stylesheet">
+    <title>Phishcure</title>
+
+    <script>
+        // It's best to inline this in `head` to avoid FOUC (flash of unstyled content) when changing pages or themes
+        if (
+          localStorage.getItem('color-theme') === 'dark' ||
+          (!('color-theme' in localStorage) &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches)
+        ) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      </script>
+
+</head>
+<body>
+    <header class="fixed top-0 left-0 w-full z-50 bg-secondary-dark dark:bg-secondary-dark nav-font p-3">
+        <!-- Nav bar -->
+        <nav class="relative md:mx-8 h-10 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex">
+                <img src="phishing.png" alt="" class="object-contain h-12 sm:h-12 lg:h-15 xl:h-12 2xl:h-12 p-1">
+            </a>
+            <div class="flex md:order-4">
+                <!-- menus -->
+                <div class="hidden absolute top-0 left-0 w-full py-14 bg-secondary-dark dark:bg-secondary-dark md:block md:static md:py-0 md:border-none md:w-auto md:ml-auto mr-8" id="nav-menu">
+                    <ul class="flex flex-col text-center gap-7 md:flex-row">
+                        <li>
+                            <!--a href="#home" class="nav__link nav-font hover:text-neutral-200 ease-in-duration-200">Home</a-->
+                            <a href="home" class="nav__link nav-font hover:text-neutral-200 ease-in-duration-200">Home</a>
+                        </li>
+                        <li>
+                            <!--a href="#home" class="nav__link nav-font hover:text-neutral-200 ease-in-duration-200">About Us</a-->
+                            <a href="about" class="nav__link nav-font hover:text-neutral-200 ease-in-duration-200">About</a>
+                        </li>
+                    </ul>
+          
+                    <!--close button -->
+                    <div class="absolute top-[0.7rem] right-4 nav-font cursor-pointer md:hidden" id="nav-close">
+                        <i class="ri-close-line"></i>
+                    </div>
+                </div>
+                
+                <!-- Dark mode switcher -->
+                <div class="flex items-center gap-5">
+                    <button id="theme-toggle" type="button" class="dark:bg-secondary-dark">
+                        <svg id="theme-toggle-dark-icon" class="w-8 h-8 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg id="theme-toggle-light-icon" class="w-8 h-8 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <!-- Dark mode switcher end -->
+                    
+                    <div class="md:hidden" id="menubar">
+                        <i class="ri-menu-2-line cursor-pointer nav-font"></i>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="flex bg-[#ffffffff] dark:bg-neutral-900">
+        <div class="md:mt-96 mt-6 flex flex-col justify-center p-2 mx-auto sm:py-2 lg:py-0  lg:justify-between">
+            <div class="flex flex-col items-center justify-center p-6 lg:mt-0 h-96 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 mt-20">
+                <h1 class="text-center text-primary dark:text-white ">Requested URL not found</h1>
+                <img src="3747372.png" alt="" class="object-scale-down h-96 w-auto sm:h-80 lg:h-auto xl:h-120 2xl:h-128 mb-48 md:mb-60">
+            </div>
+            <div class="sm:flex lg:flex items-center rounded-xl overflow-hidden px-4 py-3 m-12 lg:ml-20 lg:mr-20">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Js file -->
+    <script src="main.js"></script>
+
+    <!-- Footer -->
+    <div class="bg-secondary-dark">
+        <div class="max-w-2xl mx-auto  py-10">
+            <div class="text-center">
+                <a href="https://www.skilldisk.com/" class="subheading text-white ease-in-duration-200 hover:underline hover:text-lime-500">Interns@SkillDisk</a>
+                <div class="text-center py-5">
+                    <a href="https://gpt.karnataka.gov.in/gwptbengaluru/public/en" class="subheading text-white py-5 ease-in-duration-200 hover:underline hover:text-lime-500">Students@GWPTBLR</a>
+                    <div class="flex justify-center my-10">
+                        <div class="flex items-center border w-auto rounded-lg px-4 py-2  mx-2">
+                            <img src="p.png" class="w-32 md:w-42">
+                        </div>
+                        <div class="flex items-center border w-auto rounded-lg px-4 py-2  mx-2">
+                            <img src="logo.png" class="w-32 md:w-42">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

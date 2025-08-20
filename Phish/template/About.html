@@ -1,0 +1,248 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--~~~~~~~~~~~~~~~ Font Awesome ~~~~~~~~~~~~~~~-->
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!--~~~~~~~~~~~~~~~ Remix Icon ~~~~~~~~~~~~~~~-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <!--~~~~~~~~~~~~~~~ CSS ~~~~~~~~~~~~~~~-->
+    <!--link href="/dist/output.css" rel="stylesheet"-->
+    <!--link href="output.css" rel="stylesheet"-->
+    <title>Phishcure</title>
+    <link rel="stylesheet" href="{% static 'css/About.css' %}">
+</head>
+    <script>
+        // It's best to inline this in `head` to avoid FOUC (flash of unstyled content) when changing pages or themes
+        if (
+          localStorage.getItem('color-theme') === 'dark' ||
+          (!('color-theme' in localStorage) &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches)
+        ) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      </script>
+
+</head>
+<body>
+    <header class="fixed top-0 left-0 w-full z-50 bg-secondary-dark dark:bg-secondary-dark nav-font p-3">
+        <!-- Nav bar -->
+        <nav class="relative md:mx-8 h-10 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex">
+                <img src="{% static 'image/phishing.png'%}" alt="" class="object-contain h-12 sm:h-12 lg:h-15 xl:h-12 2xl:h-12 p-1">
+            </a>
+            <div class="flex md:order-4">
+                <!-- menus -->
+                <div class="hidden absolute top-0 left-0 w-full py-14 bg-secondary-dark dark:bg-secondary-dark md:block md:static md:py-0 md:border-none md:w-auto md:ml-auto mr-8" id="nav-menu">
+                    <ul class="flex flex-col text-center gap-7 md:flex-row">
+                        <li>
+                            <!--a href="#home" class="nav__link nav-font hover:text-neutral-200 ease-in-duration-200">Home</a-->
+                            <a href="{% url 'home'%}" class="nav__link nav-font hover:text-neutral-200 ease-in-duration-200">Home</a>
+                        </li>
+                        <li>
+                            <!--a href="#home" class="nav__link nav-font hover:text-neutral-200 ease-in-duration-200">About Us</a-->
+                            <a href="{% url 'about'%}" class="nav__link nav-font hover:text-neutral-200 ease-in-duration-200">About</a>
+                        </li>
+                    </ul>
+          
+                    <!--close button -->
+                    <div class="absolute top-[0.7rem] right-4 nav-font cursor-pointer md:hidden" id="nav-close">
+                        <i class="ri-close-line"></i>
+                    </div>
+                </div>
+                
+                <!-- Dark mode switcher -->
+                <div class="flex items-center gap-5">
+                    <button id="theme-toggle" type="button" class="dark:bg-secondary-dark">
+                        <svg id="theme-toggle-dark-icon" class="w-8 h-8 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg id="theme-toggle-light-icon" class="w-8 h-8 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <!-- Dark mode switcher end -->
+                    
+                    <div class="md:hidden" id="menubar">
+                        <i class="ri-menu-2-line cursor-pointer nav-font"></i>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="bg-white dark:bg-neutral-700">
+        <div class="max-w-screen-xl px-4 pt-10 pb-6 mt-5 md:mt-0 mx-auto text-center lg:py-12 lg:px-4">
+            <div class="max-w-screen-lg lg:max-w-screen-md mx-auto">
+                <div class="py-4 flex justify-center items-center">
+                    <img src="{% static 'image/phishing.png'%}" alt="" class="h-20 sm:h-15 lg:h-17 xl:h-10 2xl:h-10 p-2">
+                </div>
+                <p class="paragraph text-2xl">Phishcure is your guardian against phishing attacks, leveraging the power of Artificial Intelligence to keep you safe.</p>
+                <p class="paragraph text-2xl">With our cutting-edge AI technology, we analyze and detect phishing attempts with unparalleled accuracy, staying one step ahead of cybercriminals. By leveraging machine learning algorithms, we continuously adapt and improve our detection capabilities, ensuring maximum security.</p>
+            </div>
+        </div>
+    </section>
+      
+    <section class="bg-white dark:bg-black">
+        <div class="max-w-screen-xl px-4 py-2 mx-auto lg:py-10 md:py-12 lg:px-4">
+            <div class="max-w-7xl md:max-w-6xl px-4 py-2 mx-auto lg:py-10 md:py-12 lg:px-8">
+                <h2 >Role of AI in Phishcure</h2><br>
+                <p class="text-2xl">Phishcure refers to a platform that uses AI to detect and prevent phishing attacks. AI is used to analyze patterns, identify suspicious links, and even simulate phishing attacks to train users to recognize them. By leveraging AI, Phishcure systems can stay ahead of evolving phishing techniques and help protect users from falling victim to fraudulent schemes.</p>
+            </div>
+        </div>
+    </section>
+        
+    <section class="bg-white dark:bg-black">
+        <div class="max-w-screen-xl px-4 py-2 mx-auto lg:py-10 md:py-12 lg:px-4">
+            <div class="max-w-7xl md:max-w-6xl px-4 py-2 mx-auto lg:py-10 lg:px-8">
+                <h2>Various Machine Learning Algorithms used :</h2><br>
+                <h3>1. Random Forest:</h3><p class="text-xl md:text-2xl">An ensemble learning method that constructs multiple decision trees during training and outputs the mode of the classes (classification) or the mean prediction (regression) of the individual trees.</p><br><br>
+                <h3>2. Decision Trees:</h3><p class="text-xl md:text-2xl">A flowchart-like structure where each internal node represents a feature, each branch represents a decision rule, and each leaf node represents the outcome or classification.</p><br><br>
+                <h3>3. Support Vector Machines (SVM):</h3><p class="text-xl md:text-2xl"> A supervised learning algorithm used for classification tasks, which finds the hyperplane that best separates classes in a high-dimensional space.</p><br><br>
+                <h3>4. Gradient Boosting Machines (GBM):</h3><p class="text-xl md:text-2xl"> An ensemble learning technique that builds a strong model by sequentially adding weak learners (typically decision trees), where each new learner corrects the errors of its predecessor.</p><br><br>
+                <h3>5. Naive Bayes:</h3><p class="text-xl md:text-2xl">A probabilistic classifier based on applying Bayes' theorem with strong (naive) independence assumptions between the features.</p>
+            </div>
+        </div>
+    </section>
+        
+    <section class="bg-white dark:bg-black">
+        <div class="max-w-screen-xl px-4 py-2 mx-auto lg:py-10 md:py-12 lg:px-4">
+            <div class="max-w-7xl md:max-w-6xl px-4 py-2 mx-auto lg:py-10 lg:px-8">
+                <h2>Accuracy of Different Models</h2>
+                <div class="grid md:grid-cols-2 grid-rows-2 md:grid-rows-1 max-w-screen-lg mx-auto place-items-center overflow-x-scroll rounded-xl p-6 lg:overflow-visible gap-5 md:gap-11 bg-white dark:bg-black">
+                    <img class="object-contain object-center rounded-lg h-60 md:h-80 bg-white" src="{% static 'image/table.jpeg' %}" alt="aiaccuracy image" />
+                    <img class="object-contain object-center  rounded-lg h-60 md:h-80 bg-white" src="{% static 'image/graph.jpeg'%}" alt="aiaccuracy image"/>
+                </div>  
+            </div>
+        </div>
+    </section>
+        
+    <!-- team -->
+    <section class="bg-white dark:bg-neutral-700">
+        <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+            <div class="mx-auto mb-10 lg:max-w-xl sm:text-center">
+                <p class="inline-block px-3 py-px mb-4 tracking-wider uppercase rounded-full heading text-3xl pb-2">Know Our Team</p>
+                <p class="text-2xl">We five students are enrolled at Government Women's Polytechnic, Bengaluru, currently pursuing our third year of study in the Computer Science and Engineering department, specifically in the sixth semester.</p>
+            </div>
+                  
+            <div class="grid gap-10 mx-auto lg:grid-cols-2 lg:max-w-screen-lg ">
+                <div class="grid sm:grid-cols-3">
+                    <div class="relative w-full h-48 max-h-full rounded-xl md:rounded-full shadow sm:h-auto">
+                        <img class="absolute object-cover w-full h-full rounded-xl md:rounded-full " src="{% static 'image/ai.jpg' %}" alt="Person" />
+                    </div>
+                    <div class="flex flex-col justify-center mt-5 sm:mt-0 sm:p-5 sm:col-span-2">
+                        <p class="subheading mt-5 mb-3">AISIRI H</p>
+                        <p>Front-end Developer</p>
+                        <div class="flex mt-4 space-x-2">
+                            <a rel="noopener noreferrer" href="https://github.com/aisirisi" title="GitHub" class="dark:text-primary text-primary hover:text-secondary-dark hover:dark:text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" class="w-4 h-4">
+                                    <path d="M16 0.396c-8.839 0-16 7.167-16 16 0 7.073 4.584 13.068 10.937 15.183 0.803 0.151 1.093-0.344 1.093-0.772 0-0.38-0.009-1.385-0.015-2.719-4.453 0.964-5.391-2.151-5.391-2.151-0.729-1.844-1.781-2.339-1.781-2.339-1.448-0.989 0.115-0.968 0.115-0.968 1.604 0.109 2.448 1.645 2.448 1.645 1.427 2.448 3.744 1.74 4.661 1.328 0.14-1.031 0.557-1.74 1.011-2.135-3.552-0.401-7.287-1.776-7.287-7.907 0-1.751 0.62-3.177 1.645-4.297-0.177-0.401-0.719-2.031 0.141-4.235 0 0 1.339-0.427 4.4 1.641 1.281-0.355 2.641-0.532 4-0.541 1.36 0.009 2.719 0.187 4 0.541 3.043-2.068 4.381-1.641 4.381-1.641 0.859 2.204 0.317 3.833 0.161 4.235 1.015 1.12 1.635 2.547 1.635 4.297 0 6.145-3.74 7.5-7.296 7.891 0.556 0.479 1.077 1.464 1.077 2.959 0 2.14-0.020 3.864-0.020 4.385 0 0.416 0.28 0.916 1.104 0.755 6.4-2.093 10.979-8.093 10.979-15.156 0-8.833-7.161-16-16-16z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                  
+                <div class="grid sm:grid-cols-3">
+                    <div class="relative w-full h-48 max-h-full rounded-xl md:rounded-full shadow sm:h-auto">
+                        <img class="absolute object-cover w-full h-full rounded-xl md:rounded-full " src="{% static 'image/je.jpg'%}" alt="Person" />
+                    </div>
+                    <div class="flex flex-col justify-center mt-5 sm:mt-0 sm:p-5 sm:col-span-2">
+                        <p class="subheading mt-5 mb-3">JESY JEFF LAURA E</p>
+                        <p>Front-end Developer</p>
+                        <div class="flex mt-4 space-x-2">
+                            <a rel="noopener noreferrer" href="https://github.com/GirlinTheFog" title="GitHub" class="dark:text-primary text-primary hover:text-secondary-dark hover:dark:text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" class="w-4 h-4">
+                                    <path d="M16 0.396c-8.839 0-16 7.167-16 16 0 7.073 4.584 13.068 10.937 15.183 0.803 0.151 1.093-0.344 1.093-0.772 0-0.38-0.009-1.385-0.015-2.719-4.453 0.964-5.391-2.151-5.391-2.151-0.729-1.844-1.781-2.339-1.781-2.339-1.448-0.989 0.115-0.968 0.115-0.968 1.604 0.109 2.448 1.645 2.448 1.645 1.427 2.448 3.744 1.74 4.661 1.328 0.14-1.031 0.557-1.74 1.011-2.135-3.552-0.401-7.287-1.776-7.287-7.907 0-1.751 0.62-3.177 1.645-4.297-0.177-0.401-0.719-2.031 0.141-4.235 0 0 1.339-0.427 4.4 1.641 1.281-0.355 2.641-0.532 4-0.541 1.36 0.009 2.719 0.187 4 0.541 3.043-2.068 4.381-1.641 4.381-1.641 0.859 2.204 0.317 3.833 0.161 4.235 1.015 1.12 1.635 2.547 1.635 4.297 0 6.145-3.74 7.5-7.296 7.891 0.556 0.479 1.077 1.464 1.077 2.959 0 2.14-0.020 3.864-0.020 4.385 0 0.416 0.28 0.916 1.104 0.755 6.4-2.093 10.979-8.093 10.979-15.156 0-8.833-7.161-16-16-16z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                  
+                <div class="grid sm:grid-cols-3">
+                    <div class="relative w-full h-48 max-h-full rounded-xl md:rounded-full shadow sm:h-auto">
+                        <img class="absolute object-cover w-full h-full rounded-xl md:rounded-full " src="{% static 'image/shi.jpg'%}" alt="Person" />
+                    </div>
+                    <div class="flex flex-col justify-center mt-5 sm:mt-0 sm:p-5 sm:col-span-2">
+                        <p class="subheading mt-5 mb-3">SHILPA G</p>
+                        <p>Front-end Developer</p>
+                        <div class="flex mt-4 space-x-2">
+                            <a rel="noopener noreferrer" href="https://github.com/Shilpacs25" title="GitHub" class="dark:text-primary text-primary hover:text-secondary-dark hover:dark:text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" class="w-4 h-4">
+                                    <path d="M16 0.396c-8.839 0-16 7.167-16 16 0 7.073 4.584 13.068 10.937 15.183 0.803 0.151 1.093-0.344 1.093-0.772 0-0.38-0.009-1.385-0.015-2.719-4.453 0.964-5.391-2.151-5.391-2.151-0.729-1.844-1.781-2.339-1.781-2.339-1.448-0.989 0.115-0.968 0.115-0.968 1.604 0.109 2.448 1.645 2.448 1.645 1.427 2.448 3.744 1.74 4.661 1.328 0.14-1.031 0.557-1.74 1.011-2.135-3.552-0.401-7.287-1.776-7.287-7.907 0-1.751 0.62-3.177 1.645-4.297-0.177-0.401-0.719-2.031 0.141-4.235 0 0 1.339-0.427 4.4 1.641 1.281-0.355 2.641-0.532 4-0.541 1.36 0.009 2.719 0.187 4 0.541 3.043-2.068 4.381-1.641 4.381-1.641 0.859 2.204 0.317 3.833 0.161 4.235 1.015 1.12 1.635 2.547 1.635 4.297 0 6.145-3.74 7.5-7.296 7.891 0.556 0.479 1.077 1.464 1.077 2.959 0 2.14-0.020 3.864-0.020 4.385 0 0.416 0.28 0.916 1.104 0.755 6.4-2.093 10.979-8.093 10.979-15.156 0-8.833-7.161-16-16-16z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid sm:grid-cols-3">
+                    <div class="relative w-full h-48 max-h-full rounded-xl md:rounded-full shadow sm:h-auto">
+                        <img class="absolute object-cover w-full h-full rounded-xl md:rounded-full " src="{% static 'image/med.jpg'%}" alt="Person" />
+                    </div>
+                    <div class="flex flex-col justify-center mt-5 sm:mt-0 sm:p-5 sm:col-span-2">
+                        <p class="subheading mt-5 mb-3">K L C MEDHA NIPUNA</p>
+                        <p>Back-end Developer</p>
+                        <div class="flex mt-4 space-x-2">
+                            <a rel="noopener noreferrer" href="https://github.com/meniklc" title="GitHub" class="dark:text-primary text-primary hover:text-secondary-dark hover:dark:text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" class="w-4 h-4">
+                                    <path d="M16 0.396c-8.839 0-16 7.167-16 16 0 7.073 4.584 13.068 10.937 15.183 0.803 0.151 1.093-0.344 1.093-0.772 0-0.38-0.009-1.385-0.015-2.719-4.453 0.964-5.391-2.151-5.391-2.151-0.729-1.844-1.781-2.339-1.781-2.339-1.448-0.989 0.115-0.968 0.115-0.968 1.604 0.109 2.448 1.645 2.448 1.645 1.427 2.448 3.744 1.74 4.661 1.328 0.14-1.031 0.557-1.74 1.011-2.135-3.552-0.401-7.287-1.776-7.287-7.907 0-1.751 0.62-3.177 1.645-4.297-0.177-0.401-0.719-2.031 0.141-4.235 0 0 1.339-0.427 4.4 1.641 1.281-0.355 2.641-0.532 4-0.541 1.36 0.009 2.719 0.187 4 0.541 3.043-2.068 4.381-1.641 4.381-1.641 0.859 2.204 0.317 3.833 0.161 4.235 1.015 1.12 1.635 2.547 1.635 4.297 0 6.145-3.74 7.5-7.296 7.891 0.556 0.479 1.077 1.464 1.077 2.959 0 2.14-0.020 3.864-0.020 4.385 0 0.416 0.28 0.916 1.104 0.755 6.4-2.093 10.979-8.093 10.979-15.156 0-8.833-7.161-16-16-16z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                  
+                <div class="grid sm:grid-cols-3">
+                    <div class="relative w-full h-48 max-h-full rounded-xl md:rounded-full shadow sm:h-auto">
+                        <img class="absolute object-cover w-full h-full rounded-xl md:rounded-full " src="{% static 'image/moni.jpg'%}" alt="Person" />
+                    </div>
+                    <div class="flex flex-col justify-center mt-5 sm:mt-0 sm:p-5 sm:col-span-2">
+                        <p class="subheading mt-5 mb-3">MONISHA D K</p>
+                        <p>Back-end Developer</p>
+                        <div class="flex mt-4 space-x-2">
+                            <a rel="noopener noreferrer" href="https://github.com/MonishaDK123" title="GitHub" class="dark:text-primary text-primary hover:text-secondary-dark hover:dark:text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" class="w-4 h-4">
+                                    <path d="M16 0.396c-8.839 0-16 7.167-16 16 0 7.073 4.584 13.068 10.937 15.183 0.803 0.151 1.093-0.344 1.093-0.772 0-0.38-0.009-1.385-0.015-2.719-4.453 0.964-5.391-2.151-5.391-2.151-0.729-1.844-1.781-2.339-1.781-2.339-1.448-0.989 0.115-0.968 0.115-0.968 1.604 0.109 2.448 1.645 2.448 1.645 1.427 2.448 3.744 1.74 4.661 1.328 0.14-1.031 0.557-1.74 1.011-2.135-3.552-0.401-7.287-1.776-7.287-7.907 0-1.751 0.62-3.177 1.645-4.297-0.177-0.401-0.719-2.031 0.141-4.235 0 0 1.339-0.427 4.4 1.641 1.281-0.355 2.641-0.532 4-0.541 1.36 0.009 2.719 0.187 4 0.541 3.043-2.068 4.381-1.641 4.381-1.641 0.859 2.204 0.317 3.833 0.161 4.235 1.015 1.12 1.635 2.547 1.635 4.297 0 6.145-3.74 7.5-7.296 7.891 0.556 0.479 1.077 1.464 1.077 2.959 0 2.14-0.020 3.864-0.020 4.385 0 0.416 0.28 0.916 1.104 0.755 6.4-2.093 10.979-8.093 10.979-15.156 0-8.833-7.161-16-16-16z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Js file -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <!-- Footer -->
+    <div class="bg-secondary-dark">
+        <div class="max-w-2xl mx-auto  py-10">
+            <div class="text-center">
+                <a href="https://www.skilldisk.com/" class="subheading text-white ease-in-duration-200 hover:underline hover:text-lime-500">Interns@SkillDisk</a>
+                <div class="text-center py-5">
+                    <a href="https://gpt.karnataka.gov.in/gwptbengaluru/public/en" class="subheading text-white py-5 ease-in-duration-200 hover:underline hover:text-lime-500">Students@GWPTBLR</a>
+                    <div class="flex justify-center my-10">
+                        <div class="flex items-center border w-auto rounded-lg px-4 py-2  mx-2">
+                            <img src="{% static 'image/phishing.png' %}" class="w-32 md:w-42">
+                        </div>
+                        <div class="flex items-center border w-auto rounded-lg px-4 py-2  mx-2">
+                            <img src="{% static 'image/logo.png' %}" class="w-32 md:w-42">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
